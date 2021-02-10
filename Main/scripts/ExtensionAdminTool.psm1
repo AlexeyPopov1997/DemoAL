@@ -36,7 +36,7 @@ function PublishAndInstall($ServerInstance, $ApplicationName)
 }
 
 # Командлет для перепубликации и установки нашего расширения
-# Пример вызова: RepublishApp -ServerInstanceName BC170 -AppPath "C:\ALPOPOV\AL\DemoAL\ALPOPOV_Customer Extension_1.0.0.0.app"
+# Пример вызова: RepublishApp -ServerInstanceName BC170 -AppPath "C:\ALPOPOV\AL\DemoAL\Main\ALPOPOV_Customer Extension_1.0.0.0.app"
 function RepublishApp {
 param([string]$ServerInstanceName, [string]$AppPath)
 
