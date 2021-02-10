@@ -14,7 +14,7 @@ cd $homeDir\scripts
 
 $null = ./NavAdminTool.ps1
 
-Import-Module ".\ExtensionAdminTool.psm1"
+$null = Import-Module ".\ExtensionAdminTool.psm1"
 
 cd $homeDir
 RepublishApp -ServerInstanceName BC170 -AppPath ".\NAVICON_Main Extension_1.0.0.0.app"
