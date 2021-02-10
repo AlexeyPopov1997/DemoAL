@@ -1,48 +1,57 @@
-# Функция для отмены публикации расширения и зависимых от него
-# [Internal]
-function UnpublishAppAndDependencies($ServerInstance, $ApplicationName) {
-    Get-NAVAppInfo -ServerInstance $ServerInstance | Where-Object { 
+# Функция для отмены публикации нашего расширения и зависимых от него
+function UnpublishAppAndDependencies($ServerInstance, $ApplicationName)
+{
+     Get-NAVAppInfo -ServerInstance $ServerInstance | Where-Object { 
         (Get-NAVAppInfo -ServerInstance $ServerInstance -Name $_.Name).Dependencies | Where-Object {$_.Name -eq $ApplicationName}
-    } | ForEach-Object {
-        UnpublishAppAndDependencies $ServerInstance $_.Name
-    }
-    
-    Unpublish-NAVApp -ServerInstance $ServerInstance -Name $ApplicationName
+        } | ForEach-Object {
+            UnpublishAppAndDependencies $ServerInstance $_.Name
+        }
+
+     Unpublish-NAVApp -ServerInstance $ServerInstance -Name $ApplicationName
 }
 
-# Функция для отмены публикации и удаления расширения
-# [Comandlet]
-function UninstallAndUnpublish($ServerInstance, $ApplicationName) {
+# Функция для отмены публикации и удаления нашего расширения
+function UninstallAndUnpublish($ServerInstance, $ApplicationName)
+{
     Uninstall-NAVApp -ServerInstance $ServerInstance -Name $ApplicationName -Force
     UnpublishAppAndDependencies $ServerInstance  $ApplicationName
 }
 
-# Функция для публикации расширения и зависимых от него
-function PublishAppAndDependencies($ServerInstance, $ApplicationName, $ApplicationPath) {
-    Get-NAVAppInfo -ServerInstance $ServerInstance | Where-Object {
-        (Get-NAVAppInfo -ServerInstance $ServerInstance -Name $_.Name).Dependencies | Where-Object {$_.Name -eq $ApplicationName} 
-    } | ForEach-Object {
+# Функция для публикации нашего расширения и зависимых от него
+function PublishAppAndDependencies($ServerInstance, $ApplicationName)
+{
+     Get-NAVAppInfo -ServerInstance $ServerInstance | Where-Object {
+     (Get-NAVAppInfo -ServerInstance $ServerInstance -Name $_.Name).Dependencies | Where-Object {$_.Name -eq $ApplicationName} } | ForEach-Object {
         PublishAppAndDependencies $ServerInstance $_.Name
-    }
-    
-    Publish-NAVApp -ServerInstance $ServerInstance -Path $ApplicationPath -Force -SkipVerification
+     }
+
+     Publish-NAVApp -Path $AppPath -ServerInstance $ServerInstance -Force -SkipVerification
 }
 
-# Функция для публикации и установки расширения
-function PublishAndInstall($ServerInstance, $ApplicationName, $ApplicationPath) {
-    PublishAppAndDependencies $ServerInstance  $ApplicationName $ApplicationPath
-    Install-NAVApp -ServerInstance $ServerInstance -Path $ApplicationPath
+# Функция для публикации и установки нашего расширения
+function PublishAndInstall($ServerInstance, $ApplicationName)
+{
+    PublishAppAndDependencies $ServerInstance  $ApplicationName
+    Install-NAVApp -ServerInstance $ServerInstanceName -Name $ApplicationName
 }
 
-# Командлет для перепубликации и установки расширения
-# Пример вызова: RepublishApplication -ServerInstance BC170 -ApplicationName "Customer Extension" -ApplicationPath "C:\ALPOPOV\AL\DemoAL\ALPOPOV_Customer Extension_1.0.0.0.app"
-function RepublishApplication {
-    param([string]$ServerInstance, [string]$ApplicationName, [string]$ApplicationPath)
+# Командлет для перепубликации и установки нашего расширения
+# Пример вызова: RepublishApp -ServerInstanceName BC170 -AppPath "C:\ALPOPOV\AL\DemoAL\ALPOPOV_Customer Extension_1.0.0.0.app"
+function RepublishApp {
+param([string]$ServerInstanceName, [string]$AppPath)
+
     
-    $NAVInfo = Get-NAVAppInfo -ServerInstance $ServerInstance | Where-Object {$_.Name -eq $ApplicationName}
+    $NAVInfo = Get-NAVAppInfo -ServerInstance $ServerInstanceName | Where-Object {$_.Name -eq "Customer Extension"}
     if($NAVInfo) {
-        UninstallAndUnpublish -ServerInstance $ServerInstance -ApplicationName $ApplicationName
+        UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Customer Extension"
     }
-    
-    $null = PublishAndInstall -ServerInstance $ServerInstance -ApplicationName $ApplicationName -ApplicationPath $ApplicationPath
+    $null = PublishAndInstall -ServerInstance $ServerInstanceName -ApplicationName "Customer Extension"
+}
+
+# Командлет для отмены публикации нашего расширения
+# Пример вызова: UnpublishApp -ServerInstanceName BC170
+function UnpublishApp {
+param([string]$ServerInstanceName)
+
+    UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Customer Extension"
 }
