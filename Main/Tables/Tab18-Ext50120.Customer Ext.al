@@ -7,7 +7,7 @@ tableextension 50120 "Customer Blocks" extends Customer
         {
             Editable = false;
             CaptionML = ENU = 'Customer Blocked',
-                        RUS = 'Клиент заблокирован Привет';
+                        RUS = 'Клиент заблокирован';
 
             DataClassification = CustomerContent;
         }
