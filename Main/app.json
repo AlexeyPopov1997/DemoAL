@@ -1,10 +1,10 @@
 {
   "id": "a8a47040-7dc9-4499-9cff-d35299b6ad04",
-  "name": "Customer Extension",
-  "publisher": "ALPOPOV",
+  "name": "Main Extension",
+  "publisher": "NAVICON",
   "version": "1.0.0.0",
   "brief": "",
-  "description": "This is customer extension",
+  "description": "",
   "privacyStatement": "",
   "EULA": "",
   "help": "",

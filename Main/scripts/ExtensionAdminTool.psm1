@@ -36,16 +36,16 @@ function PublishAndInstall($ServerInstance, $ApplicationName)
 }
 
 # Командлет для перепубликации и установки нашего расширения
-# Пример вызова: RepublishApp -ServerInstanceName BC170 -AppPath "C:\ALPOPOV\AL\DemoAL\Main\ALPOPOV_Customer Extension_1.0.0.0.app"
+# Пример вызова: RepublishApp -ServerInstanceName BC170 -AppPath "C:\ALPOPOV\AL\DemoAL\Main\NAVICON_Main Extension_1.0.0.0.app"
 function RepublishApp {
 param([string]$ServerInstanceName, [string]$AppPath)
 
     
-    $NAVInfo = Get-NAVAppInfo -ServerInstance $ServerInstanceName | Where-Object {$_.Name -eq "Customer Extension"}
+    $NAVInfo = Get-NAVAppInfo -ServerInstance $ServerInstanceName | Where-Object {$_.Name -eq "Main Extension"}
     if($NAVInfo) {
-        UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Customer Extension"
+        UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Main Extension"
     }
-    $null = PublishAndInstall -ServerInstance $ServerInstanceName -ApplicationName "Customer Extension"
+    $null = PublishAndInstall -ServerInstance $ServerInstanceName -ApplicationName "Main Extension"
 }
 
 # Командлет для отмены публикации нашего расширения
@@ -53,5 +53,5 @@ param([string]$ServerInstanceName, [string]$AppPath)
 function UnpublishApp {
 param([string]$ServerInstanceName)
 
-    UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Customer Extension"
+    UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Main Extension"
 }
