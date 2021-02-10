@@ -53,5 +53,5 @@ param([string]$ServerInstanceName, [string]$AppPath)
 function UnpublishApp {
 param([string]$ServerInstanceName)
 
-    UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Customer Extension"
+    UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Main Extension"
 }
