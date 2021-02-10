@@ -16,6 +16,7 @@ cd $homeDir\scripts
 
 Import-Module ".\ExtensionAdminTool.psm1" -Verbose
 
+cd $homeDir
 RepublishApp -ServerInstanceName BC170 -AppPath ".\NAVICON_Main Extension_1.0.0.0.app"
 
 git push origin DEV 
