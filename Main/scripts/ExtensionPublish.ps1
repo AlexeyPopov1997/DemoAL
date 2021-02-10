@@ -12,9 +12,9 @@ cd "C:\Users\$userName\.vscode\extensions\$extensionName\bin\"
 
 cd $homeDir\scripts
 
-./NavAdminTool.ps1
+$null = ./NavAdminTool.ps1
 
-Import-Module ".\ExtensionAdminTool.psm1" -Verbose
+Import-Module ".\ExtensionAdminTool.psm1"
 
 cd $homeDir
 RepublishApp -ServerInstanceName BC170 -AppPath ".\NAVICON_Main Extension_1.0.0.0.app"
