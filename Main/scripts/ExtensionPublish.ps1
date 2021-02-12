@@ -8,7 +8,7 @@ $extensionName = Get-ChildItem -Name -Filter "ms-dynamics-smb.al*"
 
 cd "C:\Users\$userName\.vscode\extensions\$extensionName\bin\"
 
-./alc.exe /project:$homeDir /packagecachepath:$homeDir\.alpackages
+$null = ./alc.exe /project:$homeDir /packagecachepath:$homeDir\.alpackages
 
 cd $homeDir\scripts
 
