@@ -41,11 +41,11 @@ function RepublishApp {
 param([string]$ServerInstanceName, [string]$AppPath)
 
     
-    $NAVInfo = Get-NAVAppInfo -ServerInstance $ServerInstanceName | Where-Object {$_.Name -eq "Main Extension"}
+    $NAVInfo = Get-NAVAppInfo -ServerInstance $ServerInstanceName | Where-Object {$_.Name -eq "Main Extension 1"}
     if($NAVInfo) {
-        UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Main Extension"
+        UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Main Extension 1"
     }
-    $null = PublishAndInstall -ServerInstance $ServerInstanceName -ApplicationName "Main Extension"
+    $null = PublishAndInstall -ServerInstance $ServerInstanceName -ApplicationName "Main Extension 1"
 }
 
 # Командлет для отмены публикации нашего расширения
@@ -53,5 +53,5 @@ param([string]$ServerInstanceName, [string]$AppPath)
 function UnpublishApp {
 param([string]$ServerInstanceName)
 
-    UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Main Extension"
+    UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "Main Extension 1"
 }

@@ -1,6 +1,6 @@
 table 63 "Account Use Buffer"
 {
-    Caption = 'Account Use Buffer';
+    Caption = 'Account Use Buffer 1';
     ReplicateData = false;
 
     fields
