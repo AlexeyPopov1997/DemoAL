@@ -25,5 +25,5 @@ $quietExecution = git add .
 
 $commitMessage = Read-Host "`nEnter commit message '<Task ID> <Developer ID>'"
 
-$quietExecution = git commit -m "sdgsdfg"
+$quietExecution = git commit -m $commitMessage
 $quietExecution = git push origin DEV
