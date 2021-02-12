@@ -45,10 +45,10 @@ function Check-ErrorVariable
 }
 
 # Welcome message
-write-host "`nWelcome to the Server Admin Tool Shell!"
-write-host "For a complete list of Server cmdlets type`n"
+# write-host "`nWelcome to the Server Admin Tool Shell!"
+# write-host "For a complete list of Server cmdlets type`n"
 
-write-host -fore Yellow "Get-Command -Module Microsoft.Dynamics.Nav.Management, Microsoft.Dynamics.Nav.Apps.Management`n"
+# write-host -fore Yellow "Get-Command -Module Microsoft.Dynamics.Nav.Management, Microsoft.Dynamics.Nav.Apps.Management`n"
 
 # Register Microsoft Dynamics NAV Management Snap-in
 RegisterSnapIn "Microsoft.Dynamics.Nav.Management" "Microsoft Dynamics NAV Management Snap-in"
