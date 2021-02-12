@@ -9,6 +9,11 @@ pageextension 21 "Customer Page Ext" extends "Customer Card"
             {
 
             }
+
+            field("Bloc"; "Bloc")
+            {
+
+            }
         }
     }
 

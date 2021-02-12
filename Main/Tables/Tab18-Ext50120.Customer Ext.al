@@ -11,5 +11,13 @@ tableextension 18 "Customer Blocks" extends Customer
 
             DataClassification = CustomerContent;
         }
+        field(50001; "Bloc"; Boolean)
+        {
+            Editable = false;
+            CaptionML = ENU = 'Customer Blocked',
+                        RUS = 'Клиент заблокирован апрапоапо';
+
+            DataClassification = CustomerContent;
+        }
     }
 }
