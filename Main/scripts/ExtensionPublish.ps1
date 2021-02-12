@@ -14,9 +14,9 @@ $quietExecution = ./alc.exe /project:$homeDir /packagecachepath:$homeDir\.alpack
 
 cd $homeDir\scripts
 
-$quietExecution = ./NavAdminTool.ps1
+$quietExecution = ./Modules/NavAdminTool.ps1
 
-$quietExecution = Import-Module ".\ExtensionAdminTool.psm1"
+$quietExecution = Import-Module ".\Modules\ExtensionAdminTool.psm1"
 
 cd $homeDir
 $quietExecution = RepublishApp -ServerInstanceName BC170 -AppPath ".\NAVICON_Main Extension_1.0.0.0.app"
