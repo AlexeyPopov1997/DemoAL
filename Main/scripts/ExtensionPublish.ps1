@@ -19,7 +19,7 @@ $quietExecution = ./Modules/NavAdminTool.ps1
 $quietExecution = Import-Module ".\Modules\ExtensionAdminTool.psm1"
 
 cd $homeDir
-$quietExecution = RepublishApp -ServerInstanceName BC170 -AppPath ".\NAVICON_Main Extension_1.0.0.0.app"
+$quietExecution = RepublishApp -ServerInstanceName BC170 -AppPath ".\NVS_GeneralExt_1.0.0.0.app"
 
 $quietExecution = git add .
 
