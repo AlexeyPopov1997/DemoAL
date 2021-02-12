@@ -1,4 +1,6 @@
 report 50120 "Blocked Customer List"
+
+
 {
     CaptionML = ENU = 'Blocked Customer List',
                 RUS = 'Список заблокированных клиентов';

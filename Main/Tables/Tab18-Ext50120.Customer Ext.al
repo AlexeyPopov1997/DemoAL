@@ -1,4 +1,4 @@
-tableextension 50120 "Customer Blocks" extends Customer
+tableextension 18 "Customer Blocks" extends Customer
 {
     fields
     {
