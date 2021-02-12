@@ -1,4 +1,4 @@
-git pull
+$null = git pull
 
 $homeDir = pwd
 
