@@ -23,7 +23,7 @@ $quietExecution = RepublishApp -ServerInstanceName BC170 -AppPath ".\NAVICON_Mai
 
 $quietExecution = git add .
 
-$commitMessage = Read-Host "`nВведите сообщение коммита '<Код задачи> <Код разработчика>'"
+$commitMessage = Read-Host "`nEnter commit message '<Task ID> <Developer ID>'"
 
 $quietExecution = git commit -m "sdgsdfg"
 $quietExecution = git push origin DEV
