@@ -5,7 +5,7 @@ tableextension 18 "Customer Blocks" extends Customer
         // Add changes to table fields here
         field(50000; "Blocked EXT"; Boolean)
         {
-            Editable = false;
+            Editable = true;
             CaptionML = ENU = 'Customer Blocked',
                         RUS = 'Клиент заблокирован';
 
@@ -13,7 +13,7 @@ tableextension 18 "Customer Blocks" extends Customer
         }
         field(50001; "Bloc"; Boolean)
         {
-            Editable = false;
+            Editable = true;
             CaptionML = ENU = 'Customer Blocked',
                         RUS = 'Клиент заблокирован апрапоапо';
 
