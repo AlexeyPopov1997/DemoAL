@@ -12,7 +12,7 @@ cd "C:\Users\$userName\.vscode\extensions\$extensionName\bin\"
 
 $quietExecution = ./alc.exe /project:$homeDir /packagecachepath:$homeDir\.alpackages
 
-cd $homeDir\scripts
+cd $homeDir\Scripts
 
 $quietExecution = ./Modules/NavAdminTool.ps1
 
@@ -23,7 +23,7 @@ $quietExecution = RepublishApp -ServerInstanceName BC170 -AppPath ".\NAVICON_Mai
 
 $quietExecution = git add .
 
-$commitMessage = Read-Host "`nEnter commit message '<Task ID> <Developer ID>'"
+$commitMessage = Read-Host "`nEnter commit message '<Task ID> <Description from tag documentation>'"
 
 $quietExecution = git commit -m $commitMessage
 $quietExecution = git push origin DEV

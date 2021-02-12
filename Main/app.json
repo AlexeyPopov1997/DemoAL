@@ -1,7 +1,7 @@
 {
   "id": "a8a47040-7dc9-4499-9cff-d35299b6ad04",
-  "name": "Main Extension",
-  "publisher": "NAVICON",
+  "name": "GeneralExt",
+  "publisher": "f",
   "version": "1.0.0.0",
   "brief": "",
   "description": "",
@@ -28,7 +28,7 @@
   "platform": "17.0.0.0",
   "idRanges": [
     {
-      "from": 50100,
+      "from": 1,
       "to": 50149
     }
   ],
