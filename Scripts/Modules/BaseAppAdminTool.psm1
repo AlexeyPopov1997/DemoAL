@@ -36,7 +36,7 @@ function PublishAndInstall($ServerInstance, $ApplicationName)
 }
 
 # Командлет для перепубликации и установки базового приложения
-# Пример вызова: RepublishBaseApp -ServerInstanceName BC170 -BaseAppPath "C:\ALPOPOV\AL\DemoAL\AL\BaseApplication\Microsoft_Base Application_17.1.18256.18792.app"
+# Пример вызова: RepublishBaseApp -ServerInstanceName BC170 -BaseAppPath "C:\ALPOPOV\AL\DemoAL\AL\BaseApp\Microsoft_Base Application_17.1.18256.18792.app"
 function RepublishBaseApp {
 param([string]$ServerInstanceName, [string]$BaseAppPath)
 
