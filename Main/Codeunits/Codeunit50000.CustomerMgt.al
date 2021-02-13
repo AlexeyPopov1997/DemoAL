@@ -1,4 +1,4 @@
-codeunit 50120 "Customer Mgt"
+codeunit 50000 "Customer Mgt"
 {
     trigger OnRun();
     begin

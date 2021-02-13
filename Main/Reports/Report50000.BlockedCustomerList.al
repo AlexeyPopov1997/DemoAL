@@ -1,10 +1,8 @@
-report 50120 "Blocked Customer List"
-
-
+report 50000 "Blocked Customer List"
 {
     CaptionML = ENU = 'Blocked Customer List',
                 RUS = 'Список заблокированных клиентов';
-    RDLCLayout = 'Layouts/Rep50120.rdl';
+    RDLCLayout = 'Layouts/Layout50000.BlockedCustomerList.rdl';
     dataset
     {
         dataitem(Customer; Customer)

@@ -28,8 +28,8 @@
   "platform": "17.0.0.0",
   "idRanges": [
     {
-      "from": 1,
-      "to": 50149
+      "from": 50000,
+      "to": 99999
     }
   ],
   "contextSensitiveHelpUrl": "https://ALDemoProject.com/help/",
