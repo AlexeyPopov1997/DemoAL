@@ -36,7 +36,7 @@ function PublishAndInstall($ServerInstance, $ApplicationName)
 }
 
 # Командлет для перепубликации и установки нашего расширения
-# Пример вызова: RepublishApp -ServerInstanceName BC170 -AppPath "C:\ALPOPOV\AL\DemoAL\Main\NSP_GeneralExt_1.0.0.0.app"
+# Пример вызова: RepublishApp -ServerInstanceName BC170 -AppPath "C:\ALPOPOV\AL\DemoAL\AL\GeneralExt\NSP_GeneralExt_1.0.0.0.app"
 function RepublishApp {
 param([string]$ServerInstanceName, [string]$AppPath)
 
@@ -46,6 +46,7 @@ param([string]$ServerInstanceName, [string]$AppPath)
         UninstallAndUnpublish -ServerInstance $ServerInstanceName -ApplicationName "GeneralExt"
     }
     $null = PublishAndInstall -ServerInstance $ServerInstanceName -ApplicationName "GeneralExt"
+    Return($true)
 }
 
 # Командлет для отмены публикации нашего расширения
