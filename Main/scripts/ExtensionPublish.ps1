@@ -10,7 +10,7 @@ $extensionName = Get-ChildItem -Name -Filter "ms-dynamics-smb.al*"
 
 cd "C:\Users\$userName\.vscode\extensions\$extensionName\bin\"
 
-$quietExecution = ./alc.exe /project:$homeDir\.alpackages /packagecachepath:$homeDir\.alpackages
+$quietExecution = ./alc.exe /project:$homeDir /packagecachepath:$homeDir\.alpackages
 
 cd $homeDir\Scripts
 
@@ -19,7 +19,7 @@ $quietExecution = ./Modules/NavAdminTool.ps1
 $quietExecution = Import-Module ".\Modules\ExtensionAdminTool.psm1"
 
 cd $homeDir
-$quietExecution = RepublishApp -ServerInstanceName BC170 -AppPath ".\.alpackages\NSP_GeneralExt_1.0.0.0.app"
+$quietExecution = RepublishApp -ServerInstanceName BC170 -AppPath ".\NSP_GeneralExt_1.0.0.0.app"
 
 $quietExecution = git add .
 
