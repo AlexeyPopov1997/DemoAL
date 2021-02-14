@@ -37,4 +37,4 @@ if ($commitMessage -notmatch '^[0-9]{5}') {
 }
 
 $quietExecution = git commit -m $commitMessage
-$quietExecution = git push origin DEV
+$quietExecution = git push origin main
