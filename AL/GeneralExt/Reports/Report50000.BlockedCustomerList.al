@@ -1,7 +1,7 @@
 ﻿report 50000 "Blocked Customer List"
 {
     CaptionML = ENU = 'Blocked Customer List',
-                RUS = 'Список заблокированных клиентов <изменение 33>';
+                RUS = 'Список заблокированных клиентов <изменение>';
     RDLCLayout = 'Layouts/Layout50000.BlockedCustomerList.rdl';
     dataset
     {
@@ -12,7 +12,7 @@
             {
 
             }
-            column(Name; Name1)
+            column(Name; Name)
             {
 
             }
