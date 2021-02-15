@@ -7,7 +7,7 @@
     {
         dataitem(Customer; Customer)
         {
-            DataItemTableView = where("Blocked EXT" = const(false));
+            DataItemTableView = where("Blocked EXT" = const(true));
             column(No_; "No.")
             {
 
