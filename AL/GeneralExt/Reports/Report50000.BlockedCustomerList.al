@@ -12,7 +12,7 @@
             {
 
             }
-            column(Name; Address)
+            column(Name; Name1)
             {
 
             }
