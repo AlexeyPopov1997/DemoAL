@@ -47,5 +47,6 @@
     "platform":  "17.0.0.0",
     "target":  "OnPrem",
     "showMyCode":  true,
-    "brief":  "Base Application (RU)"
+    "brief":  "Base Application (RU)",
+    "runtime": "6.1"
 }
