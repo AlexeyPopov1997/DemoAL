@@ -1663,7 +1663,7 @@
         }
         field(12402; "Vendor Name"; Text[50])
         {
-            CalcFormula = Lookup(Vendor.Name WHERE("No." = FIELD("Vendor No.")));
+            CalcFormula = Lookup (Vendor.Name WHERE("No." = FIELD("Vendor No.")));
             Caption = 'Vendor Name';
             Editable = false;
             FieldClass = FlowField;
@@ -1686,7 +1686,7 @@
         field(12424; "G/L Starting Balance"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = Sum("G/L Entry".Amount WHERE("Source Type" = CONST(Customer),
+            CalcFormula = Sum ("G/L Entry".Amount WHERE("Source Type" = CONST(Customer),
                                                         "Source No." = FIELD("No."),
                                                         "G/L Account No." = FIELD("G/L Account Filter"),
                                                         "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
@@ -1700,7 +1700,7 @@
         field(12425; "G/L Net Change"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = Sum("G/L Entry".Amount WHERE("Source Type" = CONST(Customer),
+            CalcFormula = Sum ("G/L Entry".Amount WHERE("Source Type" = CONST(Customer),
                                                         "Source No." = FIELD("No."),
                                                         "G/L Account No." = FIELD("G/L Account Filter"),
                                                         "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
@@ -1714,7 +1714,7 @@
         field(12426; "G/L Debit Amount"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = Sum("G/L Entry"."Debit Amount" WHERE("Source Type" = CONST(Customer),
+            CalcFormula = Sum ("G/L Entry"."Debit Amount" WHERE("Source Type" = CONST(Customer),
                                                                 "Source No." = FIELD("No."),
                                                                 "G/L Account No." = FIELD("G/L Account Filter"),
                                                                 "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
@@ -1728,7 +1728,7 @@
         field(12427; "G/L Credit Amount"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = Sum("G/L Entry"."Credit Amount" WHERE("Source Type" = CONST(Customer),
+            CalcFormula = Sum ("G/L Entry"."Credit Amount" WHERE("Source Type" = CONST(Customer),
                                                                  "Source No." = FIELD("No."),
                                                                  "G/L Account No." = FIELD("G/L Account Filter"),
                                                                  "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
@@ -1742,7 +1742,7 @@
         field(12428; "G/L Balance to Date"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = Sum("G/L Entry".Amount WHERE("Source Type" = CONST(Customer),
+            CalcFormula = Sum ("G/L Entry".Amount WHERE("Source Type" = CONST(Customer),
                                                         "Source No." = FIELD("No."),
                                                         "G/L Account No." = FIELD("G/L Account Filter"),
                                                         "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
@@ -1860,7 +1860,7 @@
         {
         }
         key(Key16; "Salesperson Code")
-        {
+        {            
         }
         key(Key17; SystemModifiedAt)
         {
@@ -2936,6 +2936,8 @@
         DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
         CustLedgerEntry: Record "Cust. Ledger Entry";
     begin
+        OnBeforeOpenCustomerLedgerEntries(Rec, DetailedCustLedgEntry);
+
         DetailedCustLedgEntry.SetRange("Customer No.", "No.");
         CopyFilter("Global Dimension 1 Filter", DetailedCustLedgEntry."Initial Entry Global Dim. 1");
         CopyFilter("Global Dimension 2 Filter", DetailedCustLedgEntry."Initial Entry Global Dim. 2");
@@ -3501,6 +3503,11 @@
 
     [IntegrationEvent(false, false)]
     local procedure OnBeforeLookupPostCode(var Customer: Record Customer; var PostCodeRec: Record "Post Code")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeOpenCustomerLedgerEntries(var Customer: Record Customer; var DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry")
     begin
     end;
 

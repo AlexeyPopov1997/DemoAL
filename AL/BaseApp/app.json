@@ -3,7 +3,7 @@
     "name":  "Base Application",
     "publisher":  "Microsoft",
     "description":  "Provides business processes that are typical for small and mid-sized companies, such as sales and purchasing, and customer and vendor management, plus complex processes, such as assembly, manufacturing, service, and directed warehouse management. https://docs.microsoft.com/en-us/dynamics365/business-central/across-business-functionality",
-    "version":  "17.1.18256.18792",
+    "version":  "17.2.19367.19735",
     "logo":  "ExtensionLogo.png",
     "privacyStatement":  "https://go.microsoft.com/fwlink/?LinkId=724009",
     "EULA":  "https://go.microsoft.com/fwlink/?linkid=2009120",
@@ -14,25 +14,7 @@
                              "id":  "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
                              "name":  "System Application",
                              "publisher":  "Microsoft",
-                             "version":  "17.1.0.0"
-                         },
-                         {
-                             "id": "08d69832-9231-429e-be2c-8bab2c96905b",
-                             "name": "Email - Current User Connector",
-                             "publisher": "Microsoft",
-                             "version":  "17.1.0.0"
-                         },
-                         {
-                             "id": "aceb66c8-472e-437c-81d3-27e6c07d0f14",
-                             "name": "Email - Microsoft 365 Connector",
-                             "publisher": "Microsoft",
-                             "version":  "17.1.0.0"
-                         },
-                         {
-                             "id": "e6328152-bb29-4664-9dae-3bc7eaae1fd8",
-                             "name": "Email - Outlook REST API",
-                             "publisher": "Microsoft",
-                             "version":  "17.1.0.0"
+                             "version":  "17.2.0.0"
                          }
                      ],
     "internalsVisibleTo":  [
@@ -65,6 +47,5 @@
     "platform":  "17.0.0.0",
     "target":  "OnPrem",
     "showMyCode":  true,
-    "brief":  "Base Application (RU)",
-    "runtime": "6.0"
+    "brief":  "Base Application (RU)"
 }

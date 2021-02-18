@@ -58,21 +58,5 @@ codeunit 103 "Cust. Entry-Edit"
     local procedure OnBeforeOnRun(var CustLedgerEntryRec: Record "Cust. Ledger Entry"; var CustLedgerEntry: Record "Cust. Ledger Entry"; var DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry"; var IsHandled: Boolean)
     begin
     end;
-
-    //NC >> PA
-    [IntegrationEvent(true, true)]
-    local procedure TestEvent()
-    begin
-    end;
-
-    var
-        myClobalVariable: Integer;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Cust. Entry-Edit", 'TestEvent', '', true, true)]
-    local procedure SubcribeToTestEvent(sender: Codeunit "Cust. Entry-Edit"; myClobalVariable: Integer)
-    begin
-        // My subscriber code
-    end;
-    //NC << PA
 }
 

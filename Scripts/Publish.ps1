@@ -19,14 +19,11 @@ cd "$currentDir\Scripts"
 
 $quietExecution = ./Modules/NavAdminTool.ps1
 
-$quietExecution = Import-Module ".\Modules\ExtensionAdminTool.psm1"
+$quietExecution = Import-Module ".\Modules\AppAdminTool.psm1"
 
 cd $homeDir
-if(RepublishApp -ServerInstanceName BC170 -AppPath ".\NSP_GeneralExt_1.0.0.0.app") {
-    Write-Host "Ceneral Extension was published successfully."
-} else {
-    break
-}
+
+RepublishExtension -ServerInstanceName BC170 -ApplicationName "GeneralExt" -ApplicationPath ".\Default publisher_GeneralExt_1.0.0.0.app"
 
 $quietExecution = git add .
 
@@ -37,4 +34,4 @@ if ($commitMessage -notmatch '^[0-9]{5}') {
 }
 
 $quietExecution = git commit -m $commitMessage
-$quietExecution = git push origin main
+$quietExecution = git push origin DEV

@@ -485,23 +485,7 @@ codeunit 1652 "Add-in Manifest Management"
     begin
         GetManifestCodeunit(ManifestCodeunit, HostType);
         GetAddin(OfficeAddin, ManifestCodeunit);
-        TestEventPublisher; //NC PA
     end;
-
-    //NC >> PA
-    [IntegrationEvent(true, true)]
-    procedure TestEventPublisher()
-    begin
-    end;
-    //NC << PA
-
-    //NC >> PA
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Add-in Manifest Management", 'TestEventPublisher', '', true, true)]
-    local procedure SubcribeToTestEventPublisher(sender: Codeunit "Add-in Manifest Management"; TestMode: Boolean)
-    begin
-        // My subscriber code
-    end;
-    //NC << PA
 
     [IntegrationEvent(false, false)]
     [Scope('OnPrem')]
