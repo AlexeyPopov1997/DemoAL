@@ -4,6 +4,7 @@ page 9510 "Event Subscriptions"
     Editable = false;
     PageType = List;
     SourceTable = "Event Subscription";
+    UsageCategory = Lists;
 
     layout
     {
