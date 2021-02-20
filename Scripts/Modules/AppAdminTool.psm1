@@ -75,10 +75,21 @@ function PublishAndInstall($ServerInstance, $AppName, $AppPath) {
 function RepublishExtension {
     param([string]$ServerInstanceName, [string]$ApplicationName, [string]$ApplicationPath)
 
-    try {
-        PublishAndInstall -ServerInstance $ServerInstanceName -AppName $ApplicationName -AppPath $ApplicationPath
-    } catch {
-        Exit
+    if (Get-NavAppInfo -ServerInstance $ServerInstanceName -Name $ApplicationName) {
+        Uninstall-NavApp -ServerInstance $ServerInstanceName -Name $ApplicationName -Force
+        Unpublish-NavApp -ServerInstance $ServerInstanceName -Name $ApplicationName
+
+        try {
+            PublishAndInstall -ServerInstance $ServerInstanceName -AppName $ApplicationName -AppPath $ApplicationPath
+        } catch {
+            Exit
+        }
+    } else {
+        try {
+            PublishAndInstall -ServerInstance $ServerInstanceName -AppName $ApplicationName -AppPath $ApplicationPath
+        } catch {
+            Exit
+        }
     }
 }
 

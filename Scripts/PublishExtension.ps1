@@ -8,6 +8,11 @@ cd $homeDir
 
 $quietExecution = git pull
 
+$response = read-host "Are you sure the code is in sync and you want to continue? Press 'yes' to continue"
+if ($response -ne "yes") {
+    Exit
+}
+
 $userName = $env:username
 cd "C:\Users\$userName\.vscode\extensions\"
 $extensionName = Get-ChildItem -Name -Filter "ms-dynamics-smb.al*"
@@ -37,7 +42,7 @@ $quietExecution = git add .
 $commitMessage = Read-Host "`nEnter commit message '<Task ID> <Documentation message>'"
 if ($commitMessage -notmatch '^[0-9]{5}') {
     Write-Host "The commit message does not contain a task ID."
-    break
+    Exit
 }
 
 $quietExecution = git commit -m $commitMessage
