@@ -1,4 +1,15 @@
-﻿# Base Application 
+﻿#Paths
+$MicrosoftApplicationPath = "C:\ALPOPOV\Soft\Dynamics.365.BC.19735.RU.DVD\Applications\Application\Source\Microsoft_Application.app"
+#$CompanyHubPath = "C:\ALPOPOV\Soft\Dynamics.365.BC.19735.RU.DVD\Applications\CompanyHub\Source\Microsoft_Company Hub.app"
+#$EmailSMTPConnectorPath = "C:\ALPOPOV\Soft\Dynamics.365.BC.19735.RU.DVD\Applications\Email - SMTP Connector\Source\Microsoft_Email - SMTP Connector.app"
+#$EssentialBusinessHeadlinesPath = "C:\ALPOPOV\Soft\Dynamics.365.BC.19735.RU.DVD\Applications\EssentialBusinessHeadlines\Source\Microsoft_Essential Business Headlines.app"
+#$LatePaymentPredictionPath = "C:\ALPOPOV\Soft\Dynamics.365.BC.19735.RU.DVD\Applications\LatePaymentPredictor\Source\Microsoft_Late Payment Prediction.app"
+#$PayPalPaymentsStandardPath = "C:\ALPOPOV\Soft\Dynamics.365.BC.19735.RU.DVD\Applications\PayPalPaymentsStandard\Source\Microsoft_PayPal Payments Standard.app"
+#$SalesAndInventoryForecastPath = "C:\ALPOPOV\Soft\Dynamics.365.BC.19735.RU.DVD\Applications\SalesAndInventoryForecast\Source\Microsoft_Sales and Inventory Forecast.app"
+#$SalesSendToEmailPrinterPath = "C:\ALPOPOV\Soft\Dynamics.365.BC.19735.RU.DVD\Applications\SendToEmailPrinter\Source\Microsoft_Send To Email Printer.app"
+
+
+# Base Application 
 function UnpublishAppAndDependencies($ServerInstance, $AppName) {
     Get-NAVAppInfo -ServerInstance $ServerInstance | Where-Object { 
         (Get-NavAppInfo -ServerInstance $ServerInstance -Name $_.Name).Dependencies | Where-Object {
@@ -65,20 +76,6 @@ function RepublishExtension {
     param([string]$ServerInstanceName, [string]$ApplicationName, [string]$ApplicationPath)
 
     try {
-        Uninstall-NavApp -ServerInstance $ServerInstanceName -Name $ApplicationName -Force
-    } catch {
-        Write-Output "Function 'Republish': Error when uninstalling extension $AppName!"
-        Exit
-    }
-
-    try {
-        Unpublish-NavApp -ServerInstance $ServerInstanceName -Name $ApplicationName
-    } catch {
-        Write-Output "Function 'Republish': Error when unpublishing extension $AppName!"
-        Exit
-    }
-
-    try {
         PublishAndInstall -ServerInstance $ServerInstanceName -AppName $ApplicationName -AppPath $ApplicationPath
     } catch {
         Exit
@@ -99,6 +96,14 @@ function RepublishBaseApp {
 
     try {
         PublishAndInstall -ServerInstance $ServerInstanceName -AppName $ApplicationName -AppPath $ApplicationPath
+        PublishAndInstall -ServerInstance $ServerInstanceName -AppName "Application" -AppPath $MicrosoftApplicationPath
+        #PublishAndInstall -ServerInstance $ServerInstanceName -AppName "Company Hub" -AppPath $CompanyHubPath
+        #PublishAndInstall -ServerInstance $ServerInstanceName -AppName "Email - SMTP Connector" -AppPath $EmailSMTPConnectorPath
+        #PublishAndInstall -ServerInstance $ServerInstanceName -AppName "Essential Business Headlines" -AppPath $EssentialBusinessHeadlinesPath
+        #PublishAndInstall -ServerInstance $ServerInstanceName -AppName "Late Payment Prediction" -AppPath $LatePaymentPredictionPath
+        #PublishAndInstall -ServerInstance $ServerInstanceName -AppName "PayPal Payments Standard" -AppPath $PayPalPaymentsStandardPath
+        #PublishAndInstall -ServerInstance $ServerInstanceName -AppName "Sales and Inventory Forecast" -AppPath $SalesAndInventoryForecastPath
+        #PublishAndInstall -ServerInstance $ServerInstanceName -AppName "Send To Email Printer" -AppPath $SalesSendToEmailPrinterPath
     } catch {
         Exit
     } 

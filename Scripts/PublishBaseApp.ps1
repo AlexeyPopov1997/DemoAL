@@ -1,8 +1,9 @@
-﻿$quietExecution = $null
+﻿#Path
+$rootDirPath = "C:\ALPOPOV\AL\DemoAL"
 
-cd..
-$currentDir = pwd
-$homeDir = "$currentDir\AL\BaseApp"
+$quietExecution = $null
+
+$homeDir = "$rootDirPath\AL\BaseApp"
 cd $homeDir
 
 $quietExecution = git pull
@@ -15,7 +16,7 @@ cd "C:\Users\$userName\.vscode\extensions\$extensionName\bin\"
 
 $quietExecution = ./alc.exe /project:$homeDir /packagecachepath:$homeDir\.alpackages
 
-cd "$currentDir\Scripts"
+cd "$rootDirPath\Scripts"
 
 $quietExecution = ./Modules/NavAdminTool.ps1
 
@@ -30,6 +31,7 @@ try {
     Exit
 }
 
+cd $homeDir
 $quietExecution = git add .
 
 $commitMessage = Read-Host "`nEnter commit message '<Task ID> <Documentation message>'"
@@ -39,4 +41,4 @@ if ($commitMessage -notmatch '^[0-9]{5}') {
 }
 
 $quietExecution = git commit -m $commitMessage
-$quietExecution = git push origin DEV
+$quietExecution = git push

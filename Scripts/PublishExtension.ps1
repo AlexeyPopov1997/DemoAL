@@ -1,8 +1,9 @@
+#Path
+$rootDirPath = "C:\ALPOPOV\AL\DemoAL"
+
 $quietExecution = $null
 
-cd..
-$currentDir = pwd
-$homeDir = "$currentDir\AL\GeneralExt"
+$homeDir = "$rootDirPath\AL\GeneralExt"
 cd $homeDir
 
 $quietExecution = git pull
@@ -15,7 +16,7 @@ cd "C:\Users\$userName\.vscode\extensions\$extensionName\bin\"
 
 $quietExecution = ./alc.exe /project:$homeDir /packagecachepath:$homeDir\.alpackages
 
-cd "$currentDir\Scripts"
+cd "$rootDirPath\Scripts"
 
 $quietExecution = ./Modules/NavAdminTool.ps1
 
@@ -23,8 +24,14 @@ $quietExecution = Import-Module ".\Modules\AppAdminTool.psm1"
 
 cd $homeDir
 
-RepublishExtension -ServerInstanceName BC170 -ApplicationName "GeneralExt" -ApplicationPath ".\Default publisher_GeneralExt_1.0.0.0.app"
+try {
+    RepublishExtension -ServerInstanceName BC170 -ApplicationName "GeneralExt" -ApplicationPath ".\Default publisher_GeneralExt_1.0.0.0.app"
+    Write-Output "General Extension has been republished successfully."
+} catch {
+    Exit
+}
 
+cd $homeDir
 $quietExecution = git add .
 
 $commitMessage = Read-Host "`nEnter commit message '<Task ID> <Documentation message>'"
@@ -34,4 +41,4 @@ if ($commitMessage -notmatch '^[0-9]{5}') {
 }
 
 $quietExecution = git commit -m $commitMessage
-$quietExecution = git push origin DEV
+$quietExecution = git push
