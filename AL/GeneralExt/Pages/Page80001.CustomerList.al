@@ -9,7 +9,7 @@ pageextension 80001 "Customer List" extends "Customer List"
             {
                 Image = CustomerLedger;
                 CaptionML = ENU = 'Blocked Customer List',
-                            RUS = 'Список заблокированных клиентов';
+                            RUS = 'Список заблокированных клиентов22222';
                 trigger OnAction()
                 begin
                     report.RunModal(report::"Blocked Customer List");
