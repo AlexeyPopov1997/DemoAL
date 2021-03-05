@@ -4,7 +4,7 @@ pageextension 80000 "Customer Page" extends "Customer Card"
     {
         addafter(Name)
         {
-            field("Blocked EXT"; "Blocked EXT")
+            field("Blocked EXT"; Rec."Blocked EXT")
             {
 
             }
