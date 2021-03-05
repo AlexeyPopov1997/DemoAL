@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="TableExtension 1994964448 - Field 389323587 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Blocked EXT</source>
-          <source>Клиент заблокирован 23</source>
+          <source>Клиент заблокирован 4</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Customer - Field Blocked EXT - Property Caption</note>
         </trans-unit>
